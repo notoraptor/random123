@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 set(CMAKE_CXX_STANDARD 14)
 project(random123 VERSION 0.0.1)
 include_directories(include)
-set(SOURCE
+set(RANDOM123
         include/Random123/conventional/Engine.hpp
         include/Random123/conventional/gsl_cbrng.h
         include/Random123/features/clangfeatures.h
@@ -29,6 +29,8 @@ set(SOURCE
         include/Random123/threefry.h
         include/Random123/u01fixedpt.h
         include/Random123/uniform.hpp
+        )
+set(EXAMPLES
         examples/example_seeds.h
         examples/pi_aes.cpp
         examples/pi_capi.c
@@ -40,5 +42,11 @@ set(SOURCE
         examples/simple.c
         examples/simplepp.cpp
         )
-add_library(random123 MODULE ${SOURCE})
+set(APP_PHILOX
+        app/philox.cpp
+        )
+
+add_library(random123 MODULE ${RANDOM123} ${EXAMPLES})
 set_target_properties(random123 PROPERTIES LINKER_LANGUAGE CXX)
+
+add_executable(philox ${RANDOM123} ${APP_PHILOX})
