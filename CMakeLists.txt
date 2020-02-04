@@ -45,8 +45,12 @@ set(EXAMPLES
 set(APP_PHILOX
         app/philox.cpp
         )
+set(APP_PHILOX_32
+        app/philox32.cpp
+        )
 
 add_library(random123 MODULE ${RANDOM123} ${EXAMPLES})
 set_target_properties(random123 PROPERTIES LINKER_LANGUAGE CXX)
 
 add_executable(philox ${RANDOM123} ${APP_PHILOX})
+add_executable(philox32 ${RANDOM123} ${APP_PHILOX_32})
