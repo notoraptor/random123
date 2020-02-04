@@ -20,7 +20,7 @@ int main(int n, char **args) {
 	CBRNG::key_type key = {{seed}};
 	CBRNG::ctr_type ctr = {{0,0}};
 	CBRNG g;
-	std::cout << std::hex << "Philox2x64 with hex key " << key << " (C++)" << std::endl;
+	std::cout << std::hex << "Philox2x32 with hex key " << key << " (C++)" << std::endl;
 	for(int i=0; i < 10; ++i) {
 		// ctr[0] = i;
 		ctr[1] = i;
